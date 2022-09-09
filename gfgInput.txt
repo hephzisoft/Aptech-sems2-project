@@ -1,4 +1,0 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis lobortis augue pulvinar faucibus. In non egestas sem. Vivamus in eros elementum, lacinia urna vel, scelerisque libero. Nulla ut elit id felis pulvinar blandit sit amet vel dolor. Fusce luctus fringilla purus, at euismod neque iaculis non. Curabitur dignissim dui faucibus metus cursus hendrerit. Nam vel mi accumsan, euismod mi in, congue libero. Nulla sed turpis ut augue ullamcorper pellentesque in non diam.
-
-Curabitur porttitor eget turpis ut fringilla. Quisque vehicula massa lobortis commodo fermentum. Aenean magna mi, vestibulum tincidunt pretium eu, mattis a orci. Maecenas ac sollicitudin nisl, eu rhoncus nisi. Etiam mattis odio nec leo accumsan, eget egestas augue maximus. Phasellus a egestas mauris. Quisque vel volutpat dolor. Donec non cursus nisi. Vestibulum at turpis et ante finibus cursus. Curabitur auctor a lorem id condime
-File reading and writing both done

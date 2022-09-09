@@ -20,17 +20,66 @@ class Main {
          * codes.
          */
 
-
-        //  Try block to check for exceptions
-        try{
+        // Try block to check for exceptions
+        try {
             // Creating a FileReader object and file to read data from
-            FileReader file1 =  new FileReader("file1.txt");
+            FileReader file1 = new FileReader("file1.txt");
 
-            // Creating a FileWriter object and file where the reverse of FileReader will be put 
+            // Creating a FileWriter object and file where the reverse of the file read will
+            // be inserted
+            // It will create a new file called file2.txt
 
-        }catch(IOException e){
-            
+            FileWriter file2 = new FileWriter("file2.txt");
+
+            // Declaring a blank string in which the whole content will be stored
+
+            String storedData = "";
+
+            // initializse variable for while loop to read through the file using the read()
+            // method
+            int i;
+
+            // Reading the file using read() method which returns -1 at EOF(end of file)
+            // while reading
+
+            while ((i = file1.read()) != -1) {
+                storedData += (char) i;
+            }
+            // Converting string to arrays of character
+
+            char[] storedArray = storedData.toCharArray();
+
+            // Declaring a blank string in which the reversed content will be stored
+
+            String reverse = "";
+
+            // Using for loop to iterate over the storedArray
+
+            for (int j = storedArray.length - 1; j >= 0; j--) {
+                reverse = reverse + storedArray[j];
+            }
+
+            // Print and display the reverse of the file data
+            System.out.println(reverse);
+
+            // Writing above string data to the FileWriter Object
+
+            file2.write(reverse);
+
+            // Closing the file using close() method
+
+            file1.close();
+            file2.close();
+
+        } catch (IOException e) {
+            // If there is no file in specified path or
+            // any other error occurred during runtime
+            // then it will print IOException
+
+            // Display message
+            System.out.println(
+                    "There are some IOException");
         }
-         
+
     }
 }
