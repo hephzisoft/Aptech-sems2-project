@@ -1,9 +1,7 @@
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
-
 
 class Main {
     public static void main(String[] args) {
@@ -25,27 +23,72 @@ class Main {
 
         // Try block to check for exceptions
         try {
-            // Creating a File object to create a file 
+            // Creating a File object to create a file
             File file1 = new File("file1.txt");
-            // Boolean variable to check if the file has been created 
+            // Boolean variable to check if the file has been created
 
-            boolean created  = file1.createNewFile();
+            boolean created = file1.createNewFile();
 
             // Creating a Scanner object to take input from user from the console
             Scanner input = new Scanner(System.in);
 
+            System.out.print("> ");
             String writer = input.nextLine();
 
-            // Creating a FileWriter object 
+            // Creating a FileWriter object to write content into the file
 
+            FileWriter writtenFile = new FileWriter("file1.txt");
+            writtenFile.write(writer);
+            writtenFile.close();
 
+            // Creating a FileReader object and file to read data from
+            FileReader readerFile = new FileReader("file1.txt");
 
 
             // Creating a FileWriter object and file where the reverse of the file read will
             // be inserted
             // It will create a new file called file2.txt
 
+            FileWriter file2 = new FileWriter("file2.txt");
+
+            // Declaring a blank string in which the whole content will be stored
+
+            String storedData = "";
+
+            // initializse variable for while loop to read through the file using the read()
+            // method
+            int i;
+
+            // Reading the file using read() method which returns -1 at EOF(end of file)
+            // while reading
+
+            while ((i = readerFile.read()) != -1) {
+                storedData += (char) i;
+            }
+            // Converting string to arrays of character
+            char[] storedArray = storedData.toCharArray();
+
+            // Declaring a blank string in which the reversed content will be stored
+
+            String reverse = "";
+
+            // Using for loop to iterate over the storedArray
+
+            for (int j = storedArray.length - 1; j >= 0; j--) {
+                reverse = reverse + storedArray[j];
+            }
+            System.out.println(reverse);
+
+            // Writing above string data to the FileWriter Object
+
+            file2.write(reverse);
+            file2.close();
+            readerFile.close();
            
+
+            // Creating a FileWriter object and file where the reverse of the file read will
+            // be inserted
+            // It will create a new file called file2.txt
 
         } catch (Exception e) {
             // If there is no file in specified path or
