@@ -60,9 +60,6 @@ class Main {
                 reverse = reverse + storedArray[j];
             }
 
-            // Print and display the reverse of the file data
-            System.out.println(reverse);
-
             // Writing above string data to the FileWriter Object
 
             file2.write(reverse);
@@ -85,51 +82,55 @@ class Main {
 
             String line2 = reader2.readLine();
 
+            // isequal is used for checking when difference is found in the two contents
 
-            // assigning a areEqual variable for checking if the files are equals or not and it is first decalred to true 
-
-            boolean areEqual = true;
-            // assiging a lineNum variable for the while loop
+            boolean isequal = true;
+            // assiging a lineNum variable for the while loop and also numbers of lines
             int lineNum = 1;
-            // Using a while loop 
-            // Condition to check if the content of the file is not empty 
+            // Using a while loop
+            // Condition to check if the content of the file is not empty
             while (line1 != null || line2 != null) {
-                // Using an if statement 
-                // Condition to check if the content of both files are empty 
+                // Using an if statement
+                // Condition to check if the content of both files are empty
                 if (line1 == null || line2 == null) {
-                    // areEqual is declared to false because the file content are empty 
-                    areEqual = false;
+                    // isequal is declared to false because the file content are empty
+                    isequal = false;
 
                     break;
-                    // using an elseif statement 
-                    // Condition to check if the content in both files are the same 
+                    // using an elseif statement
+                    // Condition to check if the content in both files are the same
 
                 } else if (!line1.equals(line2)) {
-                    // areEqual is declared to false because the file content of both files are not equal 
-                    areEqual = false;
+                    // isequal is declared to false because the file content of both files are not
+                    // equal
+                    isequal = false;
 
                     break;
                 }
-                
 
                 line1 = reader1.readLine();
 
                 line2 = reader2.readLine();
+                // increment operator
 
                 lineNum++;
             }
 
-            if (areEqual) {
+            if (isequal) {
                 System.out.println("Two files have same content.");
             } else {
                 System.out.println("Two files have different content. They differ at line " + lineNum);
 
                 System.out.println("File1 has " + line1 + " and File2 has " + line2 + " at line " + lineNum);
             }
-
+            // Closing the file using close() method
             reader1.close();
 
             reader2.close();
+
+            
+            // Print and display the reverse of the file data
+            System.out.println(reverse);
 
         } catch (IOException e) {
             // If there is no file in specified path or
