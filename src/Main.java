@@ -71,6 +71,65 @@ class Main {
 
             file1.close();
             file2.close();
+            // Creating a BufferReader object
+            // Reading the firstfile
+
+            BufferedReader reader1 = new BufferedReader(new FileReader("file1.txt"));
+            // Creating a BufferReader object
+            // Reading the secondfile
+
+            BufferedReader reader2 = new BufferedReader(new FileReader("file2.txt"));
+
+            // assigning a variable to the readLine() method
+            String line1 = reader1.readLine();
+
+            String line2 = reader2.readLine();
+
+
+            // assigning a areEqual variable for checking if the files are equals or not and it is first decalred to true 
+
+            boolean areEqual = true;
+            // assiging a lineNum variable for the while loop
+            int lineNum = 1;
+            // Using a while loop 
+            // Condition to check if the content of the file is not empty 
+            while (line1 != null || line2 != null) {
+                // Using an if statement 
+                // Condition to check if the content of both files are empty 
+                if (line1 == null || line2 == null) {
+                    // areEqual is declared to false because the file content are empty 
+                    areEqual = false;
+
+                    break;
+                    // using an elseif statement 
+                    // Condition to check if the content in both files are the same 
+
+                } else if (!line1.equals(line2)) {
+                    // areEqual is declared to false because the file content of both files are not equal 
+                    areEqual = false;
+
+                    break;
+                }
+                
+
+                line1 = reader1.readLine();
+
+                line2 = reader2.readLine();
+
+                lineNum++;
+            }
+
+            if (areEqual) {
+                System.out.println("Two files have same content.");
+            } else {
+                System.out.println("Two files have different content. They differ at line " + lineNum);
+
+                System.out.println("File1 has " + line1 + " and File2 has " + line2 + " at line " + lineNum);
+            }
+
+            reader1.close();
+
+            reader2.close();
 
         } catch (IOException e) {
             // If there is no file in specified path or
@@ -79,7 +138,7 @@ class Main {
 
             // Display message
             System.out.println(
-                    "There are some IOException");
+                    "Check if anyfile exits");
         }
 
     }
