@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
@@ -44,7 +45,6 @@ class Main {
             // Creating a FileReader object and file to read data from
             FileReader readerFile = new FileReader("file1.txt");
 
-
             // Creating a FileWriter object and file where the reverse of the file read will
             // be inserted
             // It will create a new file called file2.txt
@@ -77,14 +77,36 @@ class Main {
             for (int j = storedArray.length - 1; j >= 0; j--) {
                 reverse = reverse + storedArray[j];
             }
-            System.out.println(storedData);
 
             // Writing above string data to the FileWriter Object
 
             file2.write(reverse);
             file2.close();
             readerFile.close();
-           
+
+            /*
+             * A FileInputStream obtains input bytes from a file in a file system
+             */
+            // Using FileInputStream using to compare byte by byte
+            FileInputStream comparedFile1 = new FileInputStream("file1.txt");
+            FileInputStream comparedFile2 = new FileInputStream("file2.txt");
+
+            // initializing two integer to represent each character
+
+            int readFile1 = 0;
+            int readFile2 = 0;
+            while(readFile1 != -1 && readFile2 != -1){
+                readFile1 = comparedFile1.read();
+                readFile2 = comparedFile2.read();
+
+                if(readFile1 != readFile2){
+                    break;
+                }
+
+            }
+
+            // Displaying the content of the first file on the console
+            System.out.println(storedData);
 
             // Creating a FileWriter object and file where the reverse of the file read will
             // be inserted
