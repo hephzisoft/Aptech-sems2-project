@@ -77,7 +77,7 @@ class Main {
             for (int j = storedArray.length - 1; j >= 0; j--) {
                 reverse = reverse + storedArray[j];
             }
-            System.out.println(reverse);
+            System.out.println(storedData);
 
             // Writing above string data to the FileWriter Object
 
