@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Location",
+            "request": "launch",
+            "mainClass": "Location",
+            "projectName": "Aptech-sems2-project_f490a76d"
+        },
+        {
+            "type": "java",
             "name": "Launch ReplaceText",
             "request": "launch",
             "mainClass": "ReplaceText",
