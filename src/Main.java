@@ -95,7 +95,10 @@ class Main {
 
             int readFile1 = 0;
             int readFile2 = 0;
+            // while loop to loop through the file
+            // Condition both files have not reach the last character
             while(readFile1 != -1 && readFile2 != -1){
+                // the both files are allowed to scan through the document
                 readFile1 = comparedFile1.read();
                 readFile2 = comparedFile2.read();
 
