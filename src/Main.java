@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Scanner;
 
 class Main {
@@ -68,8 +70,6 @@ class Main {
             // Converting string to arrays of character
             char[] storedArray = storedData.toCharArray();
 
-            // Declaring a blank string in which the reversed content will be stored
-
             String reverse = "";
 
             // Using for loop to iterate over the storedArray
@@ -117,29 +117,47 @@ class Main {
 
             // Scanner class to collect input for the file editing
             Scanner word_replace = new Scanner(System.in);
+
             // Asking the user the starting point
             System.out.print("Starting positiion: ");
-            // collecting the input as a string then converting it to an integer value for the starting point
+            // collecting the input as a string then converting it to an integer value for
+            // the starting point
             int start = Integer.parseInt(word_replace.nextLine());
+
             // Asking the user the ending point
             System.out.print("Ending positiion: ");
-            // collecting the input as a string then converting it to an integer value for the ending position
+            // collecting the input as a string then converting it to an integer value for
+            // the ending position
             int end = Integer.parseInt(word_replace.nextLine());
-            // Asking the user to input the new word 
+
+            // Asking the user to input the new word
             System.out.print("Word to replace: ");
-            // using the scanner class to collect the new word 
+            // using the scanner class to collect the new word
             String word_to_replace = word_replace.nextLine();
-            // Using StringBuffer to create a mutable string or a clone of the data in first file so that it can be edited
+
+            // Using StringBuffer to create a mutable string or a clone of the data in first
+            // file so that it can be edited
             StringBuffer replace = new StringBuffer(storedData);
-            // Using the replace function to replace the data in the given position collected by the user 
+
+            // Using the replace function to replace the data in the given position
+            // collected by the user
             replace.replace(start, end, word_to_replace);
-            
+            // Storing the content of the new file in a Strng using the toString()
             String newFileContent = replace.toString();
-            System.out.println(newFileContent);
-            // Using the FileWriter Object write the new word 
+
+            // Using the FileWriter Object write the new word
             FileWriter edited_file1 = new FileWriter("file1.txt");
+            // writing the word in file1.txt
             edited_file1.write(newFileContent);
+            // closing the file
             edited_file1.close();
+            // covert java.txt to bytes
+            File bytesFile = new File("ByteConversion.txt");
+            PrintWriter pwriter = new PrintWriter(bytesFile);
+            byte[] substrings = newFileContent.getBytes();
+            byte[] rs = substrings;
+            pwriter.println(Arrays.toString(rs));
+            pwriter.close();
 
         } catch (Exception e) {
             // If there is no file in specified path or
