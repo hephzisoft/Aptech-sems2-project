@@ -97,12 +97,12 @@ class Main {
             int readFile2 = 0;
             // while loop to loop through the file
             // Condition both files have not reach the last character
-            while(readFile1 != -1 && readFile2 != -1){
+            while (readFile1 != -1 && readFile2 != -1) {
                 // the both files are allowed to scan through the document
                 readFile1 = comparedFile1.read();
                 readFile2 = comparedFile2.read();
 
-                if(readFile1 != readFile2){
+                if (readFile1 != readFile2) {
                     break;
                 }
 
@@ -114,6 +114,32 @@ class Main {
             // Creating a FileWriter object and file where the reverse of the file read will
             // be inserted
             // It will create a new file called file2.txt
+
+            // Scanner class to collect input for the file editing
+            Scanner word_replace = new Scanner(System.in);
+            // Asking the user the starting point
+            System.out.print("Starting positiion: ");
+            // collecting the input as a string then converting it to an integer value for the starting point
+            int start = Integer.parseInt(word_replace.nextLine());
+            // Asking the user the ending point
+            System.out.print("Ending positiion: ");
+            // collecting the input as a string then converting it to an integer value for the ending position
+            int end = Integer.parseInt(word_replace.nextLine());
+            // Asking the user to input the new word 
+            System.out.print("Word to replace: ");
+            // using the scanner class to collect the new word 
+            String word_to_replace = word_replace.nextLine();
+            // Using StringBuffer to create a mutable string or a clone of the data in first file so that it can be edited
+            StringBuffer replace = new StringBuffer(storedData);
+            // Using the replace function to replace the data in the given position collected by the user 
+            replace.replace(start, end, word_to_replace);
+            
+            String newFileContent = replace.toString();
+            System.out.println(newFileContent);
+            // Using the FileWriter Object write the new word 
+            FileWriter edited_file1 = new FileWriter("file1.txt");
+            edited_file1.write(newFileContent);
+            edited_file1.close();
 
         } catch (Exception e) {
             // If there is no file in specified path or
