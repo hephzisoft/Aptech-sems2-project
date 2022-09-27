@@ -70,13 +70,9 @@ class Main {
             // Converting string to arrays of character
             char[] storedArray = storedData.toCharArray();
 
-            String reverse = "";
+            StringBuffer reversedContent  = new StringBuffer(storedData);
+            String reverse = reversedContent.reverse().toString();
 
-            // Using for loop to iterate over the storedArray
-
-            for (int j = storedArray.length - 1; j >= 0; j--) {
-                reverse = reverse + storedArray[j];
-            }
 
             // Writing above string data to the FileWriter Object
 
